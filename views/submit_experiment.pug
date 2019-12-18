@@ -1,0 +1,11 @@
+extends layout
+
+block content
+
+    h1 Fill below to submit
+    div 
+        form(action="submit_experiment", method="post")
+            input(type="text", name="lab" placeholder="Which lab")
+            input(type="text", name="exp" placeholder="Which Experiment")
+            textarea(type="textarea", name="info" placeholder="What Happened")
+            input(type="submit", value="Submit") 
