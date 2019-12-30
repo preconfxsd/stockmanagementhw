@@ -1,8 +1,36 @@
 extends layout
 
 block content
-    div
-        h1 LAB: #{title}
-        div(class="lab")
-            p  Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque provident hic maiores. Quod, maxime vel, voluptatum quos fugiat minima eum laborum odio mollitia labore voluptas exercitationem cupiditate pariatur maiores amet!
-            
+
+    h1 LAB:  #[b !{lab_code}]
+    div(class="panel")
+        div(class="panel_left")
+            h2 Available Chemicals
+            div
+                table
+                    tr
+                        th Name
+                        th Formula
+                        th Min Quantity
+                        th Quantity
+                        th Expire Date
+                        th Unit
+                    each chem in chemicalsOfLab
+                        if chem.min_quant > chem.quantity
+                            tr(class="")
+                                td=chem.name
+                                td=chem.formula
+                                td=chem.min_quant
+                                td=chem.quantity
+                                td=chem.expire_date
+                                td=chem.unit
+                        else
+                            tr
+                                td=chem.name
+                                td=chem.formula
+                                td=chem.min_quant
+                                td=chem.quantity
+                                td=chem.expire_date
+                                td=chem.unit
+        
+        

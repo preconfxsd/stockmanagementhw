@@ -1,0 +1,59 @@
+extends layout
+
+block content
+    h1 Inventory
+    div(class="panel")
+        div(class="panel_left")
+            h2 Available Items
+            div
+                table
+                    tr
+                        th Name
+                        th Formula
+                        th Quantity
+                        th Min Quantity
+                        th Unit
+                        each item in inventory
+                            if item.quantity < item.min_quant 
+                                tr(class= "warn" )
+                                    td=item.name
+                                    td=item.formula
+                                    td=item.quantity
+                                    td=item.min_quant
+                                    td=item.unit
+                            else
+                                tr(class= "" )
+                                    td=item.name
+                                    td=item.formula
+                                    td=item.quantity
+                                    td=item.min_quant
+                                    td=item.unit
+        div(class="panel_right")
+            h2 Add Item 
+            form(action="/inventory/", method="POST")
+                select(name="chem_id")
+                    each chem in chemicals
+                        option(value=chem.id)=chem.name + " - " + chem.formula
+                input(type="text" name="expire_date" placeholder="Expire date")
+                input(type="text" name="quantity" placeholder="Quantity")
+                select(name="lab_id")
+                    each lab in labs
+                        option(value=lab.id)=lab.code
+                input(type="submit", value="Add")
+
+    div(class="panel")
+        div(class="panel_left")
+            h2 Chemical List
+            div
+                table
+                    each chem in chemicals
+                        tr
+                            td=chem.name + " (" + chem.formula + ")"
+        div(class="panel_right")
+            h2 Define Item
+            form(action="/chemical", method="POST")
+                input(type="text" name="name" placeholder="Name")
+                input(type="text" name="formula" placeholder="Formula")
+                input(type="text" name="min_quant" placeholder="Min Quantity")
+                input(type="text" name="unit" placeholder="Unit")
+                input(type="submit", value="Define")

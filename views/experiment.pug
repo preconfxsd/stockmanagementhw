@@ -1,8 +1,29 @@
 extends layout
 
 block content
-    div
-        h1 Experiment #{title}
-        div(class="experiment")
-            p  Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque provident hic maiores. Quod, maxime vel, voluptatum quos fugiat minima eum laborum odio mollitia labore voluptas exercitationem cupiditate pariatur maiores amet!
-            
+    
+    h1 Experiment: #[b !{experiment.code}]
+    div(class="panel")
+        div(class="panel_left")
+            h2 Required Chemicals
+            table
+                tr
+                    th Formula
+                    th Name
+                    th Quantity
+                    th Unit
+                each i in inventory
+                    tr
+                        td=i.formula
+                        td=i.name
+                        td=i.quantity
+                        td=i.unit
+            img(src="/"+experiment.image, alt="")
+        div(class="panel_right")
+            h2 Add Chemical
+            form(action="/exp/" + experiment.id + "/add" method="post")
+                select(name="chem_id")
+                    each c in chemicals
+                        option(value=c.id)=c.name + " - "+ chem.formula
+                input(type="text", name="quantity" placeholder="quantity")
+                input(type="submit" value="Add")

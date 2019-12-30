@@ -1,8 +1,7 @@
 body {
     margin: 0;
     display: flex;
-    font-family: sans-serif;
-    border: 5px solid blue;
+    font-family: 'PT Sans', sans-serif;
 }
 
 main {
@@ -11,11 +10,78 @@ main {
     width: 100%;
 }
 
+a{
+    color: red;
+}
+
 a,
 a:hover {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+    margin: 24px;
+}
+
+table {
+    width: 100%;
+    border: 1px solid #aaa;
+    padding: 12px;
+}
+
+table tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    
+}
+
+a,
+input {
+    transition: box-shadow, background 0.2s ease-in-out;
+}
+
+table tr:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+table tr + tr {
+    border-top: 1px solid #ddd;
+}
+
+table tr th,
+table tr td {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+.warn {
+    background: #ff7a7a;
+}
+
+.warn:hover {
+    background: #ff5555;
+}
+
+
+
+main h1 {
+    font-size: 32px;
+}
+
+main h1 b {
+    font-weight: 300;
+    font-style: italic;
+}
+
+main h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
 
 .experiment p {
     max-width: 500px;
@@ -32,55 +98,101 @@ ul {
     padding: 0;
 }
 
+.card {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    margin: 8px 0;
+}
+
+.card p {
+    margin: 4px 0;
+    font-size: 12px;
+}
+
+.panel {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.panel .panel_left {
+    width: 55%;
+}
+
+.panel .panel_right {
+    width: 35%;
+}
+
+
+.panel .panel_right {
+    margin-left: 12px;
+}
 
 nav {
     min-width: 200px;
+    border: 0px solid #333;
 }
 
 nav ul {
-    border-right: 5px solid blue;
-    height: 100%;
+    border-right: 1px solid #333;
+    margin-top: 200px;
+    overflow: hidden;
 }
 
-nav ul li {
-    margin-bottom: 6px;
-}
 
 nav ul li a{
-    background: blue;
-    padding: 24px;
+    background: #fff;
+    padding: 24px 12px;
     display: block;
-
-    color: white
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #333;
+    background: rgba(0,0,0,0.05);
 }
 
-.btn {
-    display: block;
-    border: 1px solid blue;
-    padding: 12px 24px;
-    border-radius: 18px;
+nav ul li:first-child a {
+    
+    border-top: 1px solid #333;
+}
+
+nav ul li a:hover {
+    /*background: rgba(0,0,0, 0.2);*/
+    box-shadow: 0 0 15px rgba(0,0,0,0.45);
+    background: rgba(0,0,0,0);
+    color: #000;
 }
 
 
-.pane-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
 
-.pane-header > * {
-    padding-right: 24px;
-}
 
+
+form {
+    width: 300px;
+    border: 1px solid #aaa;
+    padding: 8px 16px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
 
 input,
-textarea {
+textarea,
+select {
+    width: 100%;
     padding: 12px 24px;
     display: block;
-    width: 400px;
-    margin: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    background: #fff;
 
 }
+
+input[type="submit"] {
+    background: rgba(0,0,0,0.1);
+}
+
+input[type="submit"]:hover {
+    background: rgba(0,0,0,0.2);
+}
+
 
 textarea {
     height: 200px;

@@ -2,21 +2,13 @@ extends layout
 
 block content
 
-    h1 Lab Management v0.1
+    h1 Experiment
     div(class="panel")
         div(class="panel_left")
             h2 Occured Experiments
-
-            div
-                table
-                    each oe in occuredExperiments
-                        tr
-                            td=oe.lab_code
-                            td=oe.exp_code
-                            td=oe.information 
         div(class="panel_right")
             h2 Submit Experiment
-            form(action="/exp_occured", method="post")
+            form(action="submit_experiment", method="post")
                 label(for="lab_id") Lab
                 select(name="lab_id")
                     each lab in labs

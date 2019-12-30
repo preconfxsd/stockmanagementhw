@@ -1,15 +1,17 @@
 extends layout
 
 block content
-    div
-        h1 Labs will be here
-        div
-            p
-                a(href="/laboratory?title=A") Lab A
-            p
-                a(href="/laboratory?title=B") Lab B
-            p
-                a(href="/laboratory?title=C") Lab C
-            p
-                a(href="/laboratory?title=D") Lab D
-            
+    h1 Laboratories
+    div(class="panel")
+        div(class="panel_left")
+            h2 Labs Recorded
+            div
+                each l in labs
+                    a(href="/lab/"+l.id)
+                        p= l.code
+                        
+        div(class="panel_right")
+            h2 Add Lab
+            form(action="/lab", method="POST")
+                input(type="text" name="code" placeholder="lab code")
+                input(type="submit", value="Add")

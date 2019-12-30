@@ -1,16 +1,18 @@
 html
     head
-        link(rel="stylesheet", href="style.css")
+        link(rel="stylesheet", href="/style.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap")
     body
         nav
             ul
                 li
-                    a(href="/") Home
+                    a(href="/") DASHBOARD
                 li
-                    a(href="/laboratories") Laboratories
+                    a(href="/inventory") INVENTORY
                 li
-                    a(href="#") Products
+                    a(href="/exp") EXPERIMENTS
                 li
-                    a(href="/experiments") Experiments
+                    a(href="/lab") LABS
         main
+            p= flash
             block content
